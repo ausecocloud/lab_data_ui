@@ -1,0 +1,40 @@
+
+div.progressarea {
+
+    /* background-color: red; */
+    flex: 0 0 auto;
+    margin: 5px 5px;
+    /* border: 1px;
+    border-color: black;
+    border-top-style: solid; */
+}
+
+
+div.progressarea div.progress-line {
+    background-color: whiteSmoke;
+    border-radius: 3px;
+    box-shadow: 0 2px 3px rgba(0,0,0,.5) inset;
+
+    /* Dimensions should be similar to the parent progress element. */
+    height:20px;
+    margin: 0px 0px;
+}
+
+div.progressarea div.progress-line div.bar {
+    background-color: royalblue;
+    border-radius: 3px;
+    height: 100%;
+    display: block;
+}
+
+div.progressarea div.progress-line div.bar.error {
+    background-color: crimson;
+}
+
+div.progressarea div.progress-line p.title {
+    position: absolute;
+    width: 100%;
+    margin: 0px 0px;
+    text-align: center;
+    line-height: 20px;
+}

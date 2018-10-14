@@ -1,0 +1,13 @@
+{
+  "jupyter.lab.setting-icon-label": "Lab Data UI",
+  "title": "Lab Data UI",
+  "description": "Settings for Lab Data UI.",
+  "properties": {
+    "appkey": {
+      "type": "string",
+      "title": "App Key",
+      "default": ""
+    }
+  },
+  "type": "object"
+}
