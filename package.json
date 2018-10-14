@@ -1,18 +1,18 @@
 {
   "name": "lab_data_ui",
   "version": "0.1.0",
-  "description": "A JupyterLab extension.",
+  "description": "A JupyterLab extension to integrate nb_data_ui.",
   "keywords": [
     "jupyter",
     "jupyterlab",
     "jupyterlab-extension"
   ],
-  "homepage": "https://github.com/sunyi000/nb_data_ui",
+  "homepage": "https://github.com/ausecocloud/lab_data_ui",
   "bugs": {
-    "url": "https://github.com/sunyi000/nb_data_ui/issues"
+    "url": "https://github.com/ausecocloud/lab_data_ui/issues"
   },
   "license": "BSD-3-Clause",
-  "author": "yi sun",
+  "author": "ecocloud",
   "files": [
     "lib/**/*.{js,js.map}",
     "style/**/*.{css,svg}",
@@ -21,7 +21,7 @@
   "main": "lib/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sunyi000/nb_data_ui.git"
+    "url": "https://github.com/ausecocloud/lab_data_ui.git"
   },
   "scripts": {
     "build:lib": "babel src --source-maps=true --out-dir=lib",
