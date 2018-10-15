@@ -5,9 +5,9 @@ import {
     JupyterLab, JupyterLabPlugin
 } from '@jupyterlab/application';
 
-import { ICommandPalette } from '@jupyterlab/apputils';
+import { ICommandPalette, Dialog, showDialog } from '@jupyterlab/apputils';
 
-import { ISettingRegistry } from '@jupyterlab/coreutils';
+import { ISettingRegistry, PageConfig, URLExt } from '@jupyterlab/coreutils';
 
 import { IFileBrowserFactory } from '@jupyterlab/filebrowser';
 
@@ -25,7 +25,8 @@ import ProgressArea from './progressarea';
 
 const CommandIDs = {
     dropboxSaver: 'dropbox:saver',
-    dropboxChooser: 'dropbox:chooser'
+    dropboxChooser: 'dropbox:chooser',
+    webdavUrl: 'ecocloud:webdavurl'
 }
 
 
@@ -146,6 +147,28 @@ async function activate(app, palette, mainMenu, browserFactory, settingRegistry)
             }
         }
     );
+    commands.addCommand(
+        CommandIDs.webdavUrl,
+        {
+            label: 'WebDAV URL',
+            caption: 'WebDAV URL',
+            execute: () => {
+                const token = PageConfig.getToken();
+                const user = PageConfig.getOption('hub_user');
+                // const baseUrl = PageConfig.getOption('baseUrl');
+                // alternatively use baseURL from PageConfig and replace '/user/' with '/webdav/'
+                const baseUrl = '/'
+                const webdavurl = new URL(URLExt.join(baseUrl, 'webdav', user), document.baseURI);
+                webdavurl.username = user;
+                webdavurl.password = token;
+                showDialog({
+                    title: 'WebDav URL',
+                    body: webdavurl.href,
+                    buttons: [Dialog.okButton()]
+                });
+            }
+        }
+    )
 
     // setup main menu
     let menu = new Menu({commands});
@@ -153,7 +176,9 @@ async function activate(app, palette, mainMenu, browserFactory, settingRegistry)
     [
         CommandIDs.dropboxChooser,
         CommandIDs.dropboxSaver,
-    ].forEach(command => menu.addItem({command}))
+    ].forEach(command => menu.addItem({command}));
+    menu.addItem({type: 'separator'});
+    menu.addItem({command: CommandIDs.webdavUrl});
 
     mainMenu.addMenu(menu,{rank:2000});
 
