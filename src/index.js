@@ -121,8 +121,13 @@ async function activate(app, palette, mainMenu, browserFactory, settingRegistry)
                 const path = getCurrentPath(browserFactory);
                 const tempurls = await tempurl.post(path, selected);
                 const files = tempurls.map(item => ({url: item.url, filename: item.name}));
+                let exportId = null;
                 // define a progress callback
                 const progress_callback = function(progress) {
+                    if (exportId === null) {
+                        // initialize progress bar
+                        exportId = pbar.addExport('Export to Dropbox');
+                    }
                     pbar.updateExport(exportId, progress);
                 }
                 // build saver
@@ -142,7 +147,6 @@ async function activate(app, palette, mainMenu, browserFactory, settingRegistry)
                         console.log('Export to Dropbox failed: ', errorMessage);
                     }
                 };
-                const exportId = pbar.addExport('Export to Dropbox');
                 Dropbox.save(options);
             }
         }
