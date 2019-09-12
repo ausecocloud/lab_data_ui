@@ -31,13 +31,13 @@
     "watch": "npm run watch:lib"
   },
   "dependencies": {
-    "@jupyterlab/application": "^0.19.1",
-    "@jupyterlab/apputils": "^0.19.1",
-    "@jupyterlab/coreutils": "^2.2.1",
-    "@jupyterlab/filebrowser": "^0.19.3",
-    "@jupyterlab/mainmenu": "^0.8.1",
-    "@jupyterlab/services": "^3.2.1",
-    "@phosphor/widgets": "^1.6.0"
+    "@jupyterlab/application": "^1.1.2",
+    "@jupyterlab/apputils": "^1.1.2",
+    "@jupyterlab/coreutils": "^3.1.0",
+    "@jupyterlab/filebrowser": "^1.1.2",
+    "@jupyterlab/mainmenu": "^1.1.2",
+    "@jupyterlab/services": "^4.1.1",
+    "@phosphor/widgets": "^1.8.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.2",
